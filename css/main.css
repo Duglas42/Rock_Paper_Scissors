@@ -65,6 +65,7 @@ body.game{
   overflow: initial;
   font-family: 'Roboto', sans-serif;
   color: white;
+  height: fit-content;
   font-size: 22px;
   background-color: rgb(45, 45, 45);
 }
@@ -218,6 +219,9 @@ body.game{
   display: block;
 }
 @media (max-width:576px) {
+  .choice{
+    margin: 20px 0 20px 0;
+  }
   .header h1{
     font-size: 2em;
   }
@@ -244,7 +248,7 @@ body.game{
     font-size: 30px;
   }
   .buttons{
-    margin-bottom: 30px;
+    padding-bottom: 30px;
   }
 
 }
