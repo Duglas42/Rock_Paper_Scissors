@@ -7,7 +7,8 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="game">
+<body>
+
 <div class="greeting">
 	<div class="greeting__item cap_1">Величайшая компания представляет</div>
 	<div class="greeting__item cap_2">Самая бесполезная игра в истории человества</div>
@@ -26,11 +27,11 @@
 <section class="choice">
 	<div class="player">
 		<p class="player__choice">?</p>
-		<p class="player__score">Пользователь:1</p>
+		<p class="player__score">Пользователь:0</p>
 	</div>
 	<div class="computer">
 		<p class="computer__choice">?</p>
-		<p class="computer__score">Компьютер:1</p>
+		<p class="computer__score">Компьютер:0</p>
 	</div>
 </section>
 
@@ -40,8 +41,12 @@
 	<button type="button" class="scissors-btn btn">✌</button>
 </div>
 
-
-<div class="winner"></div>
+<div class="winner-modal">
+	<div class="winner-modal__inner">
+		<div class="winner">Пользователь Победил</div>
+		<button type="button" class="modal__reset">Попробуй снова</button>
+	</div>
+</div>
 
 <script src="script.js"></script>
 

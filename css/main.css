@@ -56,14 +56,16 @@ table {
 =======Начало========
 */
 body{
-  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
   background-color:black;
-  color: white;
-  font-size: 22px;
   height: 100vh;
   transition:background-color .5s linear;
 }
 body.game{
+  overflow: initial;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 22px;
   height: initial;
   background-color: rgb(45, 45, 45);
 }
@@ -94,7 +96,7 @@ body.game{
 .cap_2.active,
 .cap_3.active{
   display: block;
-  animation: greet_animation 1s linear;
+  animation: greet_animation 2s linear;
   animation-fill-mode: forwards;
 }
 @keyframes greet_animation{
@@ -115,6 +117,7 @@ body.game{
   color:rgb(249, 189, 59);
 }
 .header{
+  word-wrap: normal;
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: #000;
@@ -137,16 +140,18 @@ body.game{
 .computer__choice{
   font-size:100px;
   color:rgb(156, 156, 156);
-  height: 200px;
-  width: 150px;
-  margin: 0 70px;
+  max-height: 200px;
+  max-width: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 .choice{  
+  margin: 60px auto 50px auto;
+  max-width: 700px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 .player__score,
 .computer__score{
@@ -165,8 +170,83 @@ body.game{
   justify-content: center;
   align-items: center;
   border-radius:10px;
-  width: 10%;
+  width: 130px;
   height: 150px;
   margin: 0 10px;
   font-size: 100px;
+}
+/* Модальное окно */
+.winner-modal{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(20,20,20,0.9);
+  display: none;
+}
+.winner-modal__inner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 400px;
+  height: 200px;
+  background-color: rgb(57, 56, 63);
+  opacity: 1;
+  border-radius: 20px;
+}
+.winner{
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.modal__reset{
+  cursor: pointer;
+  font-size: 15px;
+  width: 170px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(97, 97, 97);
+  border:none;
+  color:#fff;
+}
+.winner-modal.active{
+  display: block;
+}
+@media (max-width:576px) {
+  .header h1{
+    font-size: 2em;
+  }
+  /* .buttons{
+    margin: 40px auto 0 auto;
+    flex-wrap: wrap;
+  } */
+  .btn{
+    width: 100px;
+    height: 100px;
+    font-size: 60px;
+  }  
+  .player__score,
+  .computer__score{
+    font-size: 20px;
+  }
+  .subtitle__item1{
+    font-size: 1.5em;
+  }
+  .subtitle__item2{
+    font-size: 1em;
+  }
+  .player__choice,
+  .computer__choice{
+    font-size: 80px;
+  }
+  .winner{
+    font-size: 30px;
+  }
+
 }
