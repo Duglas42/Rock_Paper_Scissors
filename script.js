@@ -4,6 +4,7 @@ const paper_btn = document.querySelector(".paper-btn");
 const scissors_btn = document.querySelector(".scissors-btn");
 const game_score = document.querySelector(".game-score");
 const winner_text = document.querySelector(".winner");
+
 // Счёт компьютера и пользователя
 let playerScore = 0;
 let computerScore = 0;

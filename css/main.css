@@ -55,56 +55,118 @@ table {
 /*===================
 =======Начало========
 */
-.zero{
-  width: 150px;
-  height: 150px;
-  border: 3px solid black;
-  border-radius:50%;
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color:black;
+  color: white;
+  font-size: 22px;
+  height: 100vh;
+  transition:background-color .5s linear;
 }
-.cross{
-  font-size: 150px;
+body.game{
+  height: initial;
+  background-color: rgb(45, 45, 45);
 }
-.container{
-  max-width: 600px;
-  margin: 0 auto;
+/* Приветствие */
+.greeting__item{
+  font-family: 'Press Start 2P', cursive;
+  color:rgb(249, 189, 59)
 }
-.container__inner{
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-.cell{
-  display: flex;
-  align-items: center;
+.greeting{
+  width: 100%;
+  height: 100vh;
   justify-content: center;
-  width: 33.3333%;
+  align-items: center;
+  position: relative;
+  display: none;
+}
+.greeting.active{
+  display: flex;
+}
+.cap_1,
+.cap_2,
+.cap_3{
+  display: none;
+  max-width: 50%;
+  text-align: center;
+}
+.cap_1.active,
+.cap_2.active,
+.cap_3.active{
+  display: block;
+  animation: greet_animation 1s linear;
+  animation-fill-mode: forwards;
+}
+@keyframes greet_animation{
+  0%{
+    opacity:0.1;
+    transform: scale(1);
+  }
+  100%{
+    opacity:1;
+    transform: scale(2);
+  }
+}
+/* Шапка */
+.header h1{
+  font-size: 60px;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  color:rgb(249, 189, 59);
+}
+.header{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #000;
+}
+/* Заголовок */
+.subtitle{
+  margin-top: 40px;
+}
+.subtitle__item1{
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.subtitle__item2{
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.player__choice,
+.computer__choice{
+  font-size:100px;
+  color:rgb(156, 156, 156);
   height: 200px;
-  border:1px solid black;
+  width: 150px;
+  margin: 0 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.cross__symbol{
-  display: none;
+.choice{  
+  display: flex;
+  justify-content: center;
 }
-.zero__symbol{
-  display: none;
+.player__score,
+.computer__score{
+  font-size: 30px;
+  text-align: center;
 }
-.zero__symbol.active{
-  display: block;
+/* Кнопки */
+.buttons{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
-.cross__symbol.active{
-  display: block;
-}
-.winner__text{
+.btn{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius:10px;
+  width: 10%;
+  height: 150px;
+  margin: 0 10px;
   font-size: 100px;
-  color:red;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-left: -400px;
-  margin-top: -50px;
-}
-.reload{
-  display: block;
-  width: 600px;
-  height: 80px;
-  margin: 0 auto;
 }

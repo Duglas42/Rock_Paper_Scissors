@@ -5,15 +5,41 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tic-tac-toe</title>
 	<link rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="game">
+<div class="greeting">
+	<div class="greeting__item cap_1">Величайшая компания представляет</div>
+	<div class="greeting__item cap_2">Самая бесполезная игра в истории человества</div>
+	<div class="greeting__item cap_3">Камень Ножницы Бумага</div>
+</div>
 
+<header class="header">
+	<h1>Камень ножницы бумага</h1>
+</header>
 
-<button type="button" class="rock-btn">Камень</button>
-<button type="button" class="paper-btn">Ножницы</button>
-<button type="button" class="scissors-btn">Бумага</button>
+<section class="subtitle">
+	<p class="subtitle__item1">Выбери своё оружие</p>
+	<p class="subtitle__item2">Первый, кто наберёт 5 очков выйграл</p>
+</section>
 
-<div class="game-score">Вы:0 Компьютер:0</div>
+<section class="choice">
+	<div class="player">
+		<p class="player__choice">?</p>
+		<p class="player__score">Пользователь:1</p>
+	</div>
+	<div class="computer">
+		<p class="computer__choice">?</p>
+		<p class="computer__score">Компьютер:1</p>
+	</div>
+</section>
+
+<div class="buttons">
+	<button type="button" class="rock-btn btn">✊</button>
+	<button type="button" class="paper-btn btn">✋</button>
+	<button type="button" class="scissors-btn btn">✌</button>
+</div>
+
 
 <div class="winner"></div>
 
