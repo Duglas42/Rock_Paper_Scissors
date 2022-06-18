@@ -1,14 +1,41 @@
 "use strict";
-function computerPlay(){
-  let rand_num=Math.floor(Math.random()*3);
-  if(rand_num==0) return "rock"
-  else if(rand_num==1) return 'paper'
-  else return "sciccors"
+const rock_btn = document.querySelector(".rock-btn");
+const paper_btn = document.querySelector(".paper-btn");
+const scissors_btn = document.querySelector(".scissors-btn");
+const game_score = document.querySelector(".game-score");
+const winner_text = document.querySelector(".winner");
+// Счёт компьютера и пользователя
+let playerScore = 0;
+let computerScore = 0;
+// Обработчик событий на кнопки
+
+let arr = [rock_btn, paper_btn, scissors_btn];
+arr.forEach((item, i) => {
+  item.addEventListener("click", () => {
+    let playerSelect = "";
+    if (i == 0) playerSelect = "rock";
+    if (i == 1) playerSelect = "paper";
+    if (i == 2) playerSelect = "scissors";
+    game(playerSelect);
+    WinLose();
+  });
+});
+
+// Функция,случайно возвращающая rock paper или scissors
+
+function computerPlay() {
+  let rand_num = Math.floor(Math.random() * 3);
+  if (rand_num == 0) return "rock";
+  else if (rand_num == 1) return "paper";
+  else return "sciccors";
 }
+
+// Функция, которая берёт два значения и
+// возвращает:0-ничья, 1- победа пользователя
+// 2-победа компьютера
 function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
-  if (playerSelection == computerSelection)
-    return 0;
+  if (playerSelection == computerSelection) return 0;
   else if (
     (playerSelection == "rock" && computerSelection == "sciccors") ||
     (playerSelection == "sciccors" && computerSelection == "paper") ||
@@ -17,18 +44,22 @@ function playRound(playerSelection, computerSelection) {
     return 1;
   else return 2;
 }
-function game(){
-  let playerScore=0;
-  let computerScore=0;
-  for(let i=0;i<5;i++){
-    let playerSelection=prompt("Введи что-нибудь");
-    let computerSelection=computerPlay();
-    if (playRound(playerSelection,computerSelection)==1) playerScore++;
-    if(playRound(playerSelection,computerSelection)==2) computerScore++;
-    console.log(`Счёт игрока ${playerScore}, счёт компьютера ${computerScore}`)
-  }
-  if(playerScore==computerScore) console.log("Ничья")
-  else if(playerScore>computerScore) console.log("Ты выйграл!")
-  else console.log("Компьютер выйграл!")
+
+// Функция, которая проводит игры и подчитывает очки
+function game(playerSelect) {
+  let computerSelection = computerPlay();
+  let result = playRound(playerSelect, computerSelection);
+  if (result == 1) playerScore++;
+  else if (result == 2) computerScore++;
+  game_score.textContent = `Вы:${playerScore}, Компьютер ${computerScore}`;
 }
-game();
+// Функция, срабатывающая при достижении определённых очков
+function WinLose() {
+  if (playerScore>=5) {
+    console.log(`Победил Пользователь`);
+    winner_text.textContent = `Победил Пользователь`;
+  } else if (computerScore>=5) {
+    console.log(`Победил компьютер`);
+    winner_text.textContent = `Победил Компьютер`;
+  } else return;
+}
