@@ -244,5 +244,8 @@ body.game{
   .winner{
     font-size: 30px;
   }
+  .buttons{
+    margin-bottom: 30px;
+  }
 
 }
