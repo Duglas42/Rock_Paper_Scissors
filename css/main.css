@@ -91,7 +91,6 @@ html, body.game {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  position: relative;
   display: none;
 }
 .greeting.active{
@@ -101,7 +100,7 @@ html, body.game {
 .cap_2,
 .cap_3{
   display: none;
-  max-width: 50%;
+  width: 50%;
   text-align: center;
 }
 .cap_1.active,
@@ -262,8 +261,11 @@ html, body.game {
   .buttons{
     padding-bottom: 30px;
   }
+  .cap_1,
+  .cap_2,
+  .cap_3{
+    font-size:15px; 
+  }
 }
-* {
-  box-sizing: border-box;
-}
+
 
